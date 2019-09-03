@@ -1,6 +1,6 @@
 package com.fdmgroup.model;
 
-public class User {
+public enum Department {
 
 	
 }

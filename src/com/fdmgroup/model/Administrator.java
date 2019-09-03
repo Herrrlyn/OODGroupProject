@@ -1,6 +1,5 @@
 package com.fdmgroup.model;
 
-public class User {
+public class Administrator {
 
-	
 }
