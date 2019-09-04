@@ -38,7 +38,7 @@
 
 #issue-list td, #issue-list th {
   border: 1px solid #ddd;
-  padding: 8px;
+ /*  padding: 8px; */
 }
 
 /* #issue-list tr:nth-child(even){background-color: #f2f2f2;} */
@@ -59,7 +59,16 @@
 
 
 
-
+.status-icon {
+  background-color: #3498DB;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius:20px;
+  width: 70px;
+}
 
 
 /* Dropdown Button */
