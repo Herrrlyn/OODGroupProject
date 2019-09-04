@@ -4,15 +4,21 @@ import java.util.Date;
 
 public class Comment {
 
+	private int id;
 	private String userName;
 	private String details;
 	private Date dateAdded;
 	
 	public Comment() {
 		super();
+		this.id = -1;
+		this.userName = null;
+		this.details = null;
+		this.dateAdded = null;
 	}
-	public Comment(String userName, String details, Date dateAdded) {
+	public Comment(int id, String userName, String details, Date dateAdded) {
 		super();
+		this.id = id;
 		this.userName = userName;
 		this.details = details;
 		this.dateAdded = dateAdded;
