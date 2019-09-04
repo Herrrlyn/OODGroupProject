@@ -41,15 +41,15 @@ public class Comment {
 	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((dateAdded == null) ? 0 : dateAdded.hashCode());
-		result = prime * result + ((details == null) ? 0 : details.hashCode());
-		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
-		return result;
+	
+	
+	public int getId() {
+		return id;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -69,6 +69,8 @@ public class Comment {
 				return false;
 		} else if (!details.equals(other.details))
 			return false;
+		if (id != other.id)
+			return false;
 		if (userName == null) {
 			if (other.userName != null)
 				return false;
@@ -78,8 +80,10 @@ public class Comment {
 	}
 	@Override
 	public String toString() {
-		return "Comment [userName=" + userName + ", details=" + details + ", dateAdded=" + dateAdded + "]";
+		return "Comment [id=" + id + ", userName=" + userName + ", details=" + details + ", dateAdded=" + dateAdded
+				+ "]";
 	}
+
 	
 	
 }
