@@ -1,6 +1,6 @@
 package com.fdmgroup.model;
 
-public class User {
+public class User implements IStorable {
 
 	private int userId;
 	private String firstname;
