@@ -95,8 +95,8 @@ public class User implements IStorable {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", password=" + password + ", profilePic=" + profilePic + "]";
+		return "User \n[userId=" + userId + ", \nfirstname=" + firstname + ", \nlastname=" + lastname + ", \nemail=" + email
+				+ ", \npassword=" + password + ", \nprofilePic=" + profilePic + "]";
 	}
 	
 	

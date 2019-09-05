@@ -2,6 +2,7 @@ package com.fdmgroup.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Customer extends User {
 	
@@ -26,16 +27,6 @@ public class Customer extends User {
 		this.complaints = complaints;
 	}
 	
-	
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((complaints == null) ? 0 : complaints.hashCode());
-		return result;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		boolean equal_user = super.equals(obj);
@@ -57,10 +48,35 @@ public class Customer extends User {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Customer [complaints=" + complaints + "]";
+		return super.toString() + ", \ncomplaints=" + complaints + "]";
+	}
+
+	// View all complaints for current customer
+	public List<Complaint> ViewAllComplaints(){
+		return complaints;
 	}
 	
+	// View all unresolved complaints for current customer
+	public List<Complaint> ViewUnresolvedComplaints(){
+		List<Complaint> all = getComplaints();
+		
+		return all.stream().filter(complaint -> complaint.getStatus() == Status.Unresolved)
+							.collect(Collectors.toList());
+	}
 	
-
+	// View all resolved complaints for current customer
+	public List<Complaint> ViewResolvedComplaints(){
+		List<Complaint> all = getComplaints();
+		
+		return all.stream().filter(complaint -> complaint.getStatus() == Status.Resolved)
+							.collect(Collectors.toList());
+	}
+	
+	// View account details
+	public String ViewAccountDetails() {
+		return toString();
+	}
+	
+	// View Complaint Details
 	
 }
