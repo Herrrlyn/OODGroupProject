@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
@@ -15,6 +16,7 @@ import com.fdmgroup.model.User;
 public class CustomerCollectionDao implements ICustomerDao {
 	
 	private DatabaseWriter databaseWriter;
+	private DatabaseReader databaseReader;
 	
 	private List<Customer> customers = new ArrayList<Customer>();
 	
@@ -24,15 +26,16 @@ public class CustomerCollectionDao implements ICustomerDao {
 	}
 
 	private List<Customer> getCustomers() {
-		return databaseWriter.getCustomers();
+		return databaseReader.getCustomers();
 	}
 
 	@Override
 	public Customer create(Customer customer) {
 		User foundUser = findCustomerById(customer.getUserId());
 		if (foundUser == null) {
-			if (databaseWriter.createCustomer(customer) != null) {
-				customers.add(customer);
+			Optional<Customer> optionalCustomer = databaseWriter.createCustomer(customer);
+			if (optionalCustomer.isPresent()) {
+				customers.add(optionalCustomer.get());
 				return customer;
 			}
 		}
