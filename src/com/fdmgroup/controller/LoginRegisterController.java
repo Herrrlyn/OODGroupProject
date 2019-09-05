@@ -35,7 +35,7 @@ public class LoginRegisterController {
 
 	public void register(int id, String email, String password, String firstname, String lastname) {
 		
-		Customer customer = new Customer(id, firstname, lastname, email, password, null, null);
+		Customer customer = new Customer(id, firstname, lastname, email, password, null, null, null);
 		System.out.println(customer);
 		loginRegisterView.showLoginOptions(false);
 		

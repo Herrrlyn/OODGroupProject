@@ -1,5 +1,6 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,13 +17,15 @@ public class Customer extends User {
 		this.comments = new ArrayList<Comment>();
 	}
 
-	public Customer(int id, String firstname, String lastname, String email, String password, 
-			String profilePic, List<Complaint> complaints, List<Comment> comments) {
-		super(id, firstname, lastname, email, password, profilePic);
+	public Customer(int userId, String firstName, String lastName, String email, String password, 
+			Blob profilePic, List<Complaint> complaints, List<Comment> comments) {
+		super(userId, firstName, lastName, email, password, profilePic);
 		this.complaints = complaints;
 		this.comments = comments;
-
 	}
+
+
+
 
 	public List<Complaint> getComplaints() {
 		return complaints;
@@ -121,7 +124,7 @@ public class Customer extends User {
 	
 	public Comment AddAComment(Complaint complaint, int id, String detail, Date date) {
 		if (complaint == null) return null;
-		Comment comment = new Comment(id, complaint.getUserName(), this.getFirstname() + " " + this.getLastname(), 
+		Comment comment = new Comment(id, complaint.getUserName(), this.getFirstName() + " " + this.getLastname(), 
 				detail, complaint.getDate(), date);
 		List<Comment> comms = complaint.getComments();
 		comms.add(comment);

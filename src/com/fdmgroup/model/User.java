@@ -1,50 +1,60 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
+
 public class User implements IStorable {
 
 	private int userId;
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String password;
-	private String profilePic;
+	private Blob profilePic;
+
+	
+	
 	
 	public User() {
 		super();
-		this.userId = -1;
-		this.firstname = null;
-		this.lastname = null;
-		this.email = null;
-		this.password = null;
-		this.profilePic = null;
+		// TODO Auto-generated constructor stub
 	}
-	public User(int id, String firstname, String lastname, String email, String password, String profilePic) {
+	
+	
+	public User(int userId, String firstName, String lastName, String email, String password, Blob profilePic) {
 		super();
-		this.userId = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.profilePic = profilePic;
 	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
+	
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public String getFirstname() {
-		return firstname;
-	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -57,13 +67,14 @@ public class User implements IStorable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getProfilePic() {
+	public Blob getProfilePic() {
 		return profilePic;
 	}
-	public void setProfilePic(String profilePic) {
+	public void setProfilePic(Blob profilePic) {
 		this.profilePic = profilePic;
 	}
-	
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -78,26 +89,35 @@ public class User implements IStorable {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (firstname == null) {
-			if (other.firstname != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!firstname.equals(other.firstname))
+		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (lastname == null) {
-			if (other.lastname != null)
+		if (lastName == null) {
+			if (other.lastName != null)
 				return false;
-		} else if (!lastname.equals(other.lastname))
+		} else if (!lastName.equals(other.lastName))
 			return false;
-		
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (profilePic == null) {
+			if (other.profilePic != null)
+				return false;
+		} else if (!profilePic.equals(other.profilePic))
 		if (userId != other.userId)
 			return false;
 		return true;
 	}
+
+
 	@Override
 	public String toString() {
-		return "User \n[userId=" + userId + ", \nfirstname=" + firstname + ", \nlastname=" + lastname + ", \nemail=" + email
+
+		return "User \n[userId=" + userId + ", \nfirstname=" + firstName + ", \nlastname=" + lastName + ", \nemail=" + email
 				+ ", \npassword=" + password + ", \nprofilePic=" + profilePic + "]";
 	}
-	
-	
 }
