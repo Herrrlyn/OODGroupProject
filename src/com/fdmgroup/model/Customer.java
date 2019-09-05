@@ -26,15 +26,35 @@ public class Customer extends User {
 	public void setComplaints(List<Complaint> complaints) {
 		this.complaints = complaints;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
+		int result = 1;
 		result = prime * result + ((complaints == null) ? 0 : complaints.hashCode());
 		return result;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		boolean equal_user = super.equals(obj);
+		
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (complaints == null) {
+			if (other.complaints != null)
+				return false;
+		} else if (!complaints.equals(other.complaints))
+			return false;
+		return equal_user && true;
+	}
 
 	@Override
 	public String toString() {

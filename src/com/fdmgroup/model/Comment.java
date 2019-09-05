@@ -4,15 +4,21 @@ import java.util.Date;
 
 public class Comment {
 
+	private int id;
 	private String userName;
 	private String details;
 	private Date dateAdded;
 	
 	public Comment() {
 		super();
+		this.id = -1;
+		this.userName = null;
+		this.details = null;
+		this.dateAdded = null;
 	}
-	public Comment(String userName, String details, Date dateAdded) {
+	public Comment(int id, String userName, String details, Date dateAdded) {
 		super();
+		this.id = id;
 		this.userName = userName;
 		this.details = details;
 		this.dateAdded = dateAdded;
@@ -35,15 +41,15 @@ public class Comment {
 	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((dateAdded == null) ? 0 : dateAdded.hashCode());
-		result = prime * result + ((details == null) ? 0 : details.hashCode());
-		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
-		return result;
+	
+	
+	public int getId() {
+		return id;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,6 +69,8 @@ public class Comment {
 				return false;
 		} else if (!details.equals(other.details))
 			return false;
+		if (id != other.id)
+			return false;
 		if (userName == null) {
 			if (other.userName != null)
 				return false;
@@ -72,8 +80,10 @@ public class Comment {
 	}
 	@Override
 	public String toString() {
-		return "Comment [userName=" + userName + ", details=" + details + ", dateAdded=" + dateAdded + "]";
+		return "Comment [id=" + id + ", userName=" + userName + ", details=" + details + ", dateAdded=" + dateAdded
+				+ "]";
 	}
+
 	
 	
 }

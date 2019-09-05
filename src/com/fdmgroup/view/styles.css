@@ -24,21 +24,42 @@
 }
 
 .user-nav-bar a.active {
-  color: white;
+  font-weight:bold;
 } 
 
 
 /* =========== User Home Page ================= */
 
+.complaint-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+  position: absolute;
+  margin-top: 3%;
+  left: 88%;
+  transform: translate(0%, -45%);
+  border-radius: 3px;
+}
+
+/* For the table of complaints */
+
 #issue-list {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  margin-top:5%;
+  /* table-layout: fixed; */
 }
 
 #issue-list td, #issue-list th {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid #BBBABA;
+  padding-left: 4px;
+  background-color: #ffffff;
 }
 
 /* #issue-list tr:nth-child(even){background-color: #f2f2f2;} */
@@ -49,22 +70,70 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #f9f8f8;
+  background-color: #d7d7db;
   color: #00527e;
 }
+
+/* styles for setting column width */
+/* the first - complaint no */
+td:nth-child(1) {
+  width: 10%;
+  }
+
+/* the second - subject*/
+td:nth-child(2) {
+  width: 40%;
+}
+
+/* the third - status */
+td:nth-child(3) {
+  width: 10%;
+ }
   
+ /* the fourth -date*/
+td:nth-child(4) {
+  width: 20%;
+}
+
+/* the fifth -department*/
+td:nth-child(5) {
+  width: 20%;
+ }
+
+.status-icon-unassigned {
+  background-color: #00527e;
+  color: white;
+  padding: 4px;
+  padding-left:3px;
+  padding-right:3px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius:20px;
+  width: 80px;
+  text-align: center;
+}
+
+.status-icon-assigned {
+  background-color: #eb5a14 ;
+  color: white;
+  padding: 4px;
+  padding-left:3px;
+  padding-right:3px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius:20px;
+  width: 70px;
+  text-align: center;
+}
 
 
-
-
-
-
-
-
+/* =========== Admin Home Page ================= */
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #3498DB;
+  background-color:#00527e;
   color: white;
   padding: 12px;
   font-size: 14px;
@@ -107,3 +176,130 @@
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+/* Search bar */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #777575;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #777575;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #777575;
+  background: #777575;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  margin-top:10%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* =========== View a Complaint ================= */
+
+.complaint-header {
+  padding: 10px 10px;
+  background: #ffffff;
+  position: fixed;
+  top: 10%;
+  left:15%;
+  right:15%;
+  width: 70%;
+  height: 20%;
+  margin-right:2%;
+  float:left;
+  border-radius:3px;
+}
+
+.header-div{
+	/* text-align:center */
+}
+.header-image{
+	width:50px;
+	height:50px;
+	float:left;
+	padding-left:15px;
+	margin-right: 5px;
+	border-radius: 4px;
+}
+
+.header-title{
+	color: #3a3a3a;
+	font-size: 24px;
+	padding-left:18px;
+	padding-top:15px;
+}
+
+.header-date{
+	color: #646464;
+	/* font-size: 12px; */
+	padding-left:15px;
+	margin-bottom: 10px;
+}
+
+.header-complaint-no{
+	color: #000000;
+	font-size: 14px;
+	padding-left:15px;
+}
+
+.header-status{
+	color: #000000;
+	font-size: 14px;
+	padding-right:15px;
+}
+
+.header-dept{
+	color: #000000;
+	font-size: 14px;
+	padding-right:15px;
+}
+
+.header-resolve-button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  padding-right:15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+ /*  position: absolute; */
+  border-radius: 3px;
+  left: 75%;
+}

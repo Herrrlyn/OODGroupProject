@@ -34,16 +34,21 @@ public class User implements IStorable {
 		return firstName;
 	}
 
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-
-	public String getLastName() {
-		return lastName;
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
+	public String getLastname() {
+		return lastName;
+	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -55,12 +60,6 @@ public class User implements IStorable {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 	public String getPassword() {
 		return password;
@@ -125,7 +124,6 @@ public class User implements IStorable {
 			if (other.profilePic != null)
 				return false;
 		} else if (!profilePic.equals(other.profilePic))
-			return false;
 		if (userId != other.userId)
 			return false;
 		return true;
@@ -134,13 +132,6 @@ public class User implements IStorable {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", profilePic=" + profilePic + "]";
+		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email;
 	}
-	
-	
-	
-	
-	
-	
 }

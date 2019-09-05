@@ -6,20 +6,17 @@ import java.util.List;
 
 public class Administrator extends User {
 
-	private List<Complaint> complaints;
 	private String employeeId;
 
 	public Administrator() {
 		super();
 		this.employeeId = null;
-		this.complaints = new ArrayList<Complaint>();
 	}
 	
 	public Administrator(int userId, String firstName, String lastName, String email, String password, Blob profilePic, 
 			String employeeId, List<Complaint> complaints) {
 		super(userId, firstName, lastName, email, password, profilePic);
 		this.employeeId = employeeId;
-		this.complaints = complaints;
 	}
 
 
@@ -33,24 +30,6 @@ public class Administrator extends User {
 	}
 	
 	
-
-	public List<Complaint> getComplaints() {
-		return complaints;
-	}
-
-	public void setComplaints(List<Complaint> complaints) {
-		this.complaints = complaints;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((complaints == null) ? 0 : complaints.hashCode());
-		result = prime * result + ((employeeId == null) ? 0 : employeeId.hashCode());
-		return result;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		boolean equal_user = super.equals(obj);
@@ -72,7 +51,7 @@ public class Administrator extends User {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Administrator [complaints=" + complaints + ", employeeId=" + employeeId + "]";
+		return super.toString() + "Administrator [employeeId=" + employeeId + "]";
 	}
 
 	
