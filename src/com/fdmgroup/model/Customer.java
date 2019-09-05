@@ -1,5 +1,6 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,8 @@ public class Customer extends User {
 		this.complaints = new ArrayList<Complaint>();
 	}
 
-	public Customer(String name, String email, String password, String profilePic, List<Complaint> complaints) {
-		super(name, email, password, profilePic);
+	public Customer(int userId, String firstName, String lastName, String email, String password, Blob profilePic, List<Complaint> complaints) {
+		super(userId, firstName, lastName, email, password, profilePic);
 		this.complaints = complaints;
 
 	}

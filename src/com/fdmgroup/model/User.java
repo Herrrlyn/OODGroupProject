@@ -1,35 +1,55 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
+
 public class User implements IStorable {
 
 	private int userId;
-	private String name;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String password;
-	private String profilePic;
+	private Blob profilePic;
 
+	
+	
+	
 	public User() {
 		super();
-		this.userId = -1;
-		this.name = null;
-		this.email = null;
-		this.password = null;
-		this.profilePic = null;
+		// TODO Auto-generated constructor stub
 	}
-	public User(String name, String email, String password, String profilePic) {
+	
+	
+	public User(int userId, String firstName, String lastName, String email, String password, Blob profilePic) {
 		super();
-		this.name = name;
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.userId = IdGenerator.generate();
 		this.password = password;
 		this.profilePic = profilePic;
 	}
-	public String getName() {
-		return name;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -48,24 +68,30 @@ public class User implements IStorable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getProfilePic() {
+	public Blob getProfilePic() {
 		return profilePic;
 	}
-	public void setProfilePic(String profilePic) {
+	public void setProfilePic(Blob profilePic) {
 		this.profilePic = profilePic;
 	}
+	
+	
+
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((profilePic == null) ? 0 : profilePic.hashCode());
 		result = prime * result + userId;
 		return result;
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,21 +106,39 @@ public class User implements IStorable {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!firstName.equals(other.firstName))
 			return false;
-		
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (profilePic == null) {
+			if (other.profilePic != null)
+				return false;
+		} else if (!profilePic.equals(other.profilePic))
+			return false;
 		if (userId != other.userId)
 			return false;
 		return true;
 	}
+
+
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", userId=" + userId + ", password=" + password
-				+ ", profilePic=" + profilePic + "]";
+		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", profilePic=" + profilePic + "]";
 	}
+	
+	
 	
 	
 	

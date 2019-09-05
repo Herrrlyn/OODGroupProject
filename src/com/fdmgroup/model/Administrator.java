@@ -1,5 +1,6 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +15,9 @@ public class Administrator extends User {
 		this.complaints = new ArrayList<Complaint>();
 	}
 	
-	public Administrator(String name, String email, String password, String profilePic, 
+	public Administrator(int userId, String firstName, String lastName, String email, String password, Blob profilePic, 
 			String employeeId, List<Complaint> complaints) {
-		super(name, email, password, profilePic);
+		super(userId, firstName, lastName, email, password, profilePic);
 		this.employeeId = employeeId;
 		this.complaints = complaints;
 	}
