@@ -11,7 +11,7 @@ import java.util.List;
 import com.fdmgroup.model.Customer;
 import com.fdmgroup.model.User;
 
-public class CustomerCollectionDao implements IUserDao {
+public class CustomerCollectionDao /*implements IUserDao*/ {
 	
 	private static final String USERNAME = "trainee1";
 	private static final String PASSWORD = "!QAZSE4";
@@ -21,13 +21,14 @@ public class CustomerCollectionDao implements IUserDao {
 	
 	public CustomerCollectionDao() {
 		super();
-		customers = getCustomers();
+		customers = new ArrayList<>();
+		//customers = getCustomers();
 		//users.add(new User(1, "jdoe", "1234", "John", "Doe"));
 		//users.add(new User(2, "asmith", "4567", "Alex", "Smith"));
 		//users.add(new User(3, "mjane", "5678", "Mary", "Jane"));
 	}
 
-	private List<Customer> getCustomers() {
+	/*private List<Customer> getCustomers() {
 		String query = "SELECT * from customers";
 		try(Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				Statement statement = con.createStatement();
@@ -124,6 +125,12 @@ public class CustomerCollectionDao implements IUserDao {
 		
 		return usersByFirstname;
 	}
+
+	@Override
+	public Customer findCustomerById(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 }
 
 
