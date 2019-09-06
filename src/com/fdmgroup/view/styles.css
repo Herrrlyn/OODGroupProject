@@ -133,12 +133,18 @@ td:nth-child(5) {
 /* Dropdown Button */
 .dropbtn {
   background-color:#00527e;
-  color: white;
-  padding: 12px;
-  font-size: 14px;
   border: none;
   cursor: pointer;
-  border-radius:20px;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 3%;
+  border-radius: 3px;
+  margin-right:7%;
+  left:7%;
 }
 
 /* Dropdown button on hover & focus */
@@ -221,7 +227,7 @@ body{
 .wrap{
   width: 30%;
   position: absolute;
-  margin-top:10%;
+  margin-top:2%;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -444,8 +450,8 @@ hr {
   padding-bottom: 10px;
   left: 35%;
   top: 25%;
-  width: 40%; /* Full width */
-  height: 40%; /* Full height */
+  width: 30%; /* Full width */
+  height: 35%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: #ffffff; /* Fallback color */
   background-color: #00527e; /* Black w/ opacity */
@@ -456,10 +462,10 @@ hr {
 .modal-content {
   background-color: #fefefe;
   margin: auto;
-  /* padding: 20px; */
+  padding-top: 5px;
   border: 1px solid #888;
   width: 110%;
-  height:90%;
+  height:87%;
   width:70%;
 }
 
@@ -485,10 +491,10 @@ hr {
   display: block;
   position: relative;
   padding-left: 35px;
-  padding-top:10px;
+  padding-top: 5px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size:14px;
+  font-size:16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -512,6 +518,7 @@ hr {
   background-color: #eee;
   border-radius: 50%;
   margin-left:5px;
+  margin-top: 5px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -544,4 +551,37 @@ hr {
 	height: 5px;
 	border-radius: 50%;
 	background: white;
+}
+
+
+/* =========== Assign department popup radio buttons ================= */
+
+
+/* The Modal (background)  */
+.modal-resolve{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 15px; /* Location of the box */ 
+  padding-bottom: 10px;
+  left: 35%;
+  top: 25%;
+  width: 30%; /* Full width */
+  height: 30%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #ffffff; /* Fallback color */
+  background-color: #00527e; /* Black w/ opacity */
+  border-radius: 5px;
+}
+
+/* Modal Content */
+.modal-content-resolve{
+  background-color: #fefefe;
+  margin: auto;
+  padding-top: 5px;
+  border: 1px solid #888;
+  width: 110%;
+  height:82%;
+  width:70%;
+  padding: 5px;
 }

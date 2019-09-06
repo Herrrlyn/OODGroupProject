@@ -46,8 +46,19 @@
   </div>
   	
   <div>  
-  <button class="header-resolve-button"> + Resolve </button>
-  </div>
+  <button id="resolveBtn" class="header-resolve-button"> + Resolve </button>
+
+  <div id="myModalResolve" class="modal-resolve">
+	<!-- Modal content -->
+	<div class="modal-content-resolve">
+		<p style="padding-left:12px;">Are you sure you want to resolve this complaint?</p>
+		<button id="cancel-button2" class="header-resolve-button" style="float:left;background-color:gray;margin-left:30px;width:30%;margin-top: 30px;"> Cancel </button>
+		<button id="confirm-button" class="header-resolve-button" style="float:right;margin-right:30px;width:30%;margin-top: 30px;"> Confirm </button>
+	</div>
+	</div>
+  
+	  </div>
+  
   <div>  
   <button id="myBtn" class="header-resolve-button" style="background-color:#00527e;"> + Assign Department </button>
   <div id="myModal" class="modal">
@@ -56,9 +67,9 @@
 	  <div class="modal-content">
 	    	    
 	    <div id="radio-group-id" style="display:none;">
-		<label id="radiogroup-container" class="radio-container">Billing
+		<label id="radiogroup-container" class="radio-container" style="padding-top: 15px;">Billing
 		  <input type="radio" checked="checked" name="radio">
-		  <span class="checkmark" style="margin-top:10px;"></span>
+		  <span class="checkmark" style="margin-top:15px;"></span>
 		</label>
 		<label class="radio-container">IT
 		  <input type="radio" name="radio">
@@ -84,6 +95,7 @@
 		</div>
   </div>
  </div>
+</div>
  
  <hr/>
 	  
@@ -125,37 +137,59 @@ var modal = document.getElementById("myModal");
 var radioGroup = document.getElementById("radio-group-id");
 var radioGroupCon = document.getElementById("radiogroup-container");
 
-// Get the button that opens the modal
+//Get the modal for resolve
+var modalR = document.getElementById("myModalResolve");
+
+// Get the button that opens the modal for assigning a department
 var btn = document.getElementById("myBtn");
 var donebtn = document.getElementById("done-button");
 var cancelbtn = document.getElementById("cancel-button");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+// Get the button that opens the modal for resolving
+var resolvebtn = document.getElementById("resolveBtn");
+var confirmbtn = document.getElementById("confirm-button");
+var cancelbtn2= document.getElementById("cancel-button2");
 
-// When the user clicks the button, open the modal 
+/* // Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0]; */
+
+// When the user clicks the assign department button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
   radioGroup.style.display= "block";
   radioGroupCon.style.display = "block";
 }
 
-//When the user clicks the done button, close the modal 
+// When the user clicks the resolve button, open the modal 
+resolvebtn.onclick = function() {
+  modalR.style.display = "block";
+}
+
+//When the user clicks the done button on department, close the modal 
 donebtn.onclick = function() {
 	modal.style.display = "none";
 	  radioGroup.style.display = "none";
 		radioGroupCon.style.display = "none";
 }
 
-//When the user clicks the cancel button, close the modal 
+//When the user clicks the cancel button on department, close the modal 
 cancelbtn.onclick = function() {
 	modal.style.display = "none";
 	  radioGroup.style.display = "none";
 		radioGroupCon.style.display = "none";
 }
 
+//When the user clicks the confirm button on resolve, close the modal 
+confirmbtn.onclick = function() {
+	modalR.style.display = "none";
+}
 
-// When the user clicks anywhere outside of the modal, close it
+//When the user clicks the cancel button on resolve, close the modal 
+cancelbtn2.onclick = function() {
+	modalR.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the department modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -163,6 +197,14 @@ window.onclick = function(event) {
     radioGroupCon.style.display = "none";
   }
 }
+
+// When the user clicks anywhere outside of the resolve modal, close it
+window.onclick = function(event) {
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+}
+
 </script>
 
 

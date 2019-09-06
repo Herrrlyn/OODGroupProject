@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<title>Admin View All Complaints</title>
 </head>
 <body>
 
@@ -22,8 +23,10 @@
   
 </div>
 
+<div >
+
 <div class="wrap">
-   <div class="search">
+   <div class="search" style="float:left;">
       <input type="text" class="searchTerm" placeholder="What are you looking for?">
       <button type="submit" class="searchButton">
         <i class="fa fa-search"></i>
@@ -31,16 +34,16 @@
    </div>
 </div>
 
- <div class="dropdown">
-		  <button onclick="myFunction()" class="dropbtn">Unassigned</button>
+ <div class="dropdown" style="float:right;margin-right:30%;margin-top:2%;">
+		  <button onclick="myFunction()" class="dropbtn">Filter</button>
 		  <div id="myDropdown" class="dropdown-content">
 		    <a href="#unassigned">Unassigned</a>
 		    <a href="#assigned">Assigned</a>
 		    <a href="#resolved">Resolved</a>
 		  </div>
 		</div>
+  </div>
 
-<button class="complaint-button">+ Create a Complaint </button>
 <table id="issue-list">
   <tr>
     <th>Complaint No.</th>

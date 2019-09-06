@@ -45,7 +45,14 @@
   </div>
   	
   <div>  
-  <button class="header-resolve-button"> + Resolve </button>
+  <button id="resolvebutton" class="header-resolve-button"> + Resolve </button>
+  <div id="myModalResolve" class="modal-resolve">
+    <div class="modal-content-resolve">
+      <p style="padding-left:12px;">Are you sure you want to resolve this complaint?</p>
+      <button id="cancel-button2" class="header-resolve-button" style="float:left;background-color:gray;margin-left:30px;width:30%;margin-top: 30px;"> Cancel </button>
+      <button id="confirm-button" class="header-resolve-button" style="float:right;margin-right:30px;width:30%;margin-top: 30px;"> Confirm </button>
+    </div>
+    </div>
   </div>
  </div>
  
@@ -81,6 +88,36 @@
   <span class="time-right">11:03</span>
 </div>
 
-	  
+<script>
+//Get the modal for resolve
+var modalR = document.getElementById("myModalResolve");
+
+// Get the button that opens the modal for resolving
+var resolvebtn = document.getElementById("resolvebutton");
+var confirmbtn = document.getElementById("confirm-button");
+var cancelbtn2= document.getElementById("cancel-button2");
+
+// When the user clicks the resolve button, open the modal 
+resolvebtn.onclick = function() {
+  modalR.style.display = "block";
+}
+
+//When the user clicks the confirm button on resolve, close the modal 
+confirmbtn.onclick = function() {
+	modalR.style.display = "none";
+}
+
+//When the user clicks the cancel button on resolve, close the modal 
+cancelbtn2.onclick = function() {
+	modalR.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the resolve modal, close it
+window.onclick = function(event) {
+  if (event.target == modalR) {
+    modalR.style.display = "none";
+  }
+}
+</script>  
 </body>
 </html>
