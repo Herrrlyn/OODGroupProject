@@ -597,3 +597,30 @@ hr {
 	margin-left:15px;
 	
 }
+
+.profile-change-pw-button {
+  background-color: #00527e; 
+  border: none;
+  color: white;
+  padding: 3px 3px;
+  padding-right:15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-top:1%;
+}
+
+.profile-change-pic-button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 3px 3px;
+  padding-right:15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-left:5px;
+  margin-top:1%;
+}
