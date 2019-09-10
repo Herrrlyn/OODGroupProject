@@ -24,7 +24,7 @@ public class Tables {
 				"  first_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  last_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  email VARCHAR2(254) NOT NULL,\r\n" + 
-				"  password NVARCHAR2(15),\r\n" + 
+				"  password NVARCHAR2(15) NOT NULL,\r\n" + 
 				"  profile_picture BLOB,\r\n" + 
 				"  CONSTRAINT customer_pk PRIMARY KEY(customer_id)\r\n" + 
 				"  )").toString();
@@ -34,7 +34,7 @@ public class Tables {
 				"  first_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  last_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  email VARCHAR2(254) NOT NULL,\r\n" + 
-				"  password NVARCHAR2(15),\r\n" + 
+				"  password NVARCHAR2(15) NOT NULL,\r\n" + 
 				"  profile_picture BLOB,\r\n" + 
 				"  CONSTRAINT admin_pk PRIMARY KEY(employee_id)\r\n" + 
 				"  )").toString();

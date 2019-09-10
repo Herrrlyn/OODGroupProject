@@ -3,11 +3,12 @@ package com.fdmgroup.view;
 import java.util.Scanner;
 
 import com.fdmgroup.controller.LoginRegisterController;
+import com.fdmgroup.model.IdGenerator;
 
 public class LoginRegisterView {
 
 	private Scanner scanner;
-	private int id_generator;
+	private IdGenerator idGenerator;
 	private LoginRegisterController loginRegisterController;
 	
 
@@ -22,10 +23,10 @@ public class LoginRegisterView {
 	}
 	
 	
-	public LoginRegisterView(Scanner scanner, int id_generator, LoginRegisterController loginRegisterController) {
+	public LoginRegisterView(Scanner scanner, IdGenerator id_generator, LoginRegisterController loginRegisterController) {
 		super();
 		this.scanner = scanner;
-		this.id_generator = id_generator;
+		this.idGenerator = id_generator;
 		this.loginRegisterController = loginRegisterController;
 	}
 
@@ -74,7 +75,7 @@ public class LoginRegisterView {
 		System.out.println("Please enter last name: ");
 		String lastname = scanner.nextLine();
 		
-		loginRegisterController.register(id_generator, email, password, firstname, lastname);
+		loginRegisterController.register(IdGenerator.generate(), email, password, firstname, lastname);
 		
 	}
 
@@ -103,12 +104,12 @@ public class LoginRegisterView {
 		this.scanner = scanner;
 	}
 
-	public int getId_generator() {
-		return id_generator;
+	public IdGenerator getId_generator() {
+		return idGenerator;
 	}
 
-	public void setId_generator(int id_generator) {
-		this.id_generator = id_generator;
+	public void setId_generator(IdGenerator id_generator) {
+		this.idGenerator = id_generator;
 	}
 
 	public LoginRegisterController getLoginRegisterController() {

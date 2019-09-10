@@ -31,9 +31,9 @@ public class DatabaseReader {
 						String lname = rs.getString("last_name");
 						String email = rs.getString("email");
 						String password = rs.getString("password");
-						Blob blob = rs.getBlob("photo");
+						Blob blob = rs.getBlob("profile_picture");
 						
-						System.out.println("userid: " + id + " fname: " + fname);
+						//System.out.println("userid: " + id + " fname: " + fname);
 						Customer user = new Customer();
 						
 						user.setUserId(id);

@@ -31,8 +31,10 @@ public class CustomerCollectionDao implements ICustomerDao {
 
 	@Override
 	public Customer create(Customer customer) {
-		User foundUser = findCustomerById(customer.getUserId());
+		User foundUser = findCustomerByEmail(customer.getEmail());
+		
 		if (foundUser == null) {
+			
 			Optional<Customer> optionalCustomer = databaseWriter.createCustomer(customer);
 			if (optionalCustomer.isPresent()) {
 				customers.add(optionalCustomer.get());
@@ -44,7 +46,7 @@ public class CustomerCollectionDao implements ICustomerDao {
 
 	@Override
 	public Customer update(Customer customer) {
-		Customer foundUser = findCustomerById(customer.getUserId());
+		Customer foundUser = findCustomerByEmail(customer.getEmail());
 		
 		if (customer.getEmail() != null && !customer.getEmail().isEmpty()) {
 			foundUser.setEmail(customer.getEmail());
@@ -71,10 +73,10 @@ public class CustomerCollectionDao implements ICustomerDao {
 	}
 	
 	@Override
-	public Customer findCustomerById(int id) {
+	public Customer findCustomerByEmail(String email) {
 		
 		for (Customer customer : customers) {
-			if (customer.getUserId() == id) {
+			if (customer.getEmail().equals(email)) {
 				return customer;
 			}
 		}
