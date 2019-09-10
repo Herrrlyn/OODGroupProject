@@ -46,7 +46,7 @@ public class User implements IStorable {
 		this.userId = userId;
 	}
 
-	public String getLastname() {
+	public String getLastName() {
 		return lastName;
 	}
 

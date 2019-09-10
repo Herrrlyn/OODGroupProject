@@ -75,6 +75,7 @@ public class LoginRegisterView {
 		String lastname = scanner.nextLine();
 		
 		loginRegisterController.register(id_generator, email, password, firstname, lastname);
+		
 	}
 
 	public void showLoginOptions(boolean showError) {

@@ -6,12 +6,19 @@ import java.util.List;
 
 public class Customer extends User {
 	
-	private List<Complaint> complaints;
+	private List<Complaint> complaints = new ArrayList<Complaint>();
 
 	public Customer() {
 		super();
 		this.complaints = new ArrayList<Complaint>();
 	}
+	
+	public Customer(int userId, String firstName, String lastName, String email, String password, Blob profilePic) {
+		super(userId, firstName, lastName, email, password, profilePic);
+		this.complaints = complaints;
+
+	}
+
 
 	public Customer(int userId, String firstName, String lastName, String email, String password, Blob profilePic, List<Complaint> complaints) {
 		super(userId, firstName, lastName, email, password, profilePic);
@@ -58,7 +65,7 @@ public class Customer extends User {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Customer [complaints=" + complaints + "]";
+		return super.toString() + " Customer [complaints=" + complaints + "]";
 	}
 	
 	
