@@ -3,6 +3,7 @@ package com.fdmgroup.controller;
 import java.util.Scanner;
 
 import com.fdmgroup.dao.CustomerCollectionDao;
+import com.fdmgroup.dao.ICustomerDao;
 import com.fdmgroup.model.Customer;
 import com.fdmgroup.view.ComplaintsListView;
 import com.fdmgroup.view.DetailsView;
@@ -14,15 +15,18 @@ public class LoginRegisterController {
 	private LoginRegisterView loginRegisterView;
 	private ComplaintsListView complaintsListView;
 	private DetailsView detailsView;
+	private ICustomerDao customerDao;
 	
 	public LoginRegisterController() {
 		super();
 		this.scanner = new Scanner(System.in);
+		this.customerDao = new CustomerCollectionDao();
 	}
 	
 	public LoginRegisterController(Scanner scanner) {
 		super();
 		this.scanner = scanner;
+		this.customerDao = new CustomerCollectionDao();
 	}
 
 	public LoginRegisterController(Scanner scanner, LoginRegisterView loginRegisterView,
@@ -30,15 +34,15 @@ public class LoginRegisterController {
 		super();
 		this.scanner = scanner;
 		this.loginRegisterView = loginRegisterView;
+		this.customerDao = new CustomerCollectionDao();
 	}
+	
 	public void register(int id, String email, String password, String firstname, String lastname) {
 			
 		
 		Customer customer = new Customer(id, firstname, lastname, email, password, null, null);
 
-		
-		CustomerCollectionDao cdao = new CustomerCollectionDao();
-		cdao.create(customer);
+		customerDao.create(customer);
 		
 		//System.out.println(customer);
 		loginRegisterView.showLoginOptions(false);
@@ -46,6 +50,14 @@ public class LoginRegisterController {
 	}
 	
 	public void login(String email, String password) {
+		Customer found = customerDao.findCustomerByEmail(email);
+		if (found != null) {
+			if (found.getPassword() == password) {
+				System.out.println("Login Succeed......");
+			}
+		} else {
+			System.out.println("Login failed........Wrong Email/Password Provided......");
+		}
 		System.out.println("Things need to be done......");
 	}
 

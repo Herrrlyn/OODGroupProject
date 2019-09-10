@@ -5,8 +5,8 @@ import java.sql.Blob;
 public class User implements IStorable {
 
 	private int userId;
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String password;
 	private Blob profilePic;
@@ -14,17 +14,17 @@ public class User implements IStorable {
 	public User() {
 		super();
 		this.userId = -1;
-		this.firstname = null;
-		this.lastname = null;
+		this.firstName = null;
+		this.lastName = null;
 		this.email = null;
 		this.password = null;
 		this.profilePic = null;
 	}
-	public User(int id, String firstname, String lastname, String email, String password, Blob profilePic2) {
+	public User(int id, String firstName, String lastName, String email, String password, Blob profilePic2) {
 		super();
 		this.userId = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.profilePic = profilePic2;
@@ -36,18 +36,18 @@ public class User implements IStorable {
 		this.userId = userId;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getEmail() {
 		return email;
@@ -82,15 +82,15 @@ public class User implements IStorable {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (firstname == null) {
-			if (other.firstname != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!firstname.equals(other.firstname))
+		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (lastname == null) {
-			if (other.lastname != null)
+		if (lastName == null) {
+			if (other.lastName != null)
 				return false;
-		} else if (!lastname.equals(other.lastname))
+		} else if (!lastName.equals(other.lastName))
 			return false;
 		
 		if (userId != other.userId)
@@ -99,7 +99,7 @@ public class User implements IStorable {
 	}
 	@Override
 	public String toString() {
-		return "User \n[userId=" + userId + ", \nfirstname=" + firstname + ", \nlastname=" + lastname + ", \nemail=" + email
+		return "User \n[userId=" + userId + ", \nfirstName=" + firstName + ", \nlastName=" + lastName + ", \nemail=" + email
 				+ ", \npassword=" + password + ", \nprofilePic=" + profilePic + "]";
 	}
 	

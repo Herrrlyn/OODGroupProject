@@ -1,7 +1,11 @@
 package com.fdmgroup.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.fdmgroup.model.Complaint;
+import com.fdmgroup.model.Customer;
 import com.fdmgroup.view.ComplaintsListView;
 import com.fdmgroup.view.LoginRegisterView;
 
@@ -63,7 +67,14 @@ public class ComplainsController {
 		this.detailsController = detailsController;
 	}
 	
+	public List<ArrayList<String>> userViewAllComplaints(Customer customer){
+		List<ArrayList<String>> retval = customer.ViewAllComplaints();
+		return retval;
+	}
 	
+	public Complaint userViewDetailedComplaint(Customer customer, int complaint_id) {
+		return customer.findComplaintById(complaint_id);
+	}
 	
 	
 }

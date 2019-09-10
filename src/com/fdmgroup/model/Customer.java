@@ -118,7 +118,7 @@ public class Customer extends User {
 	
 	public Comment AddAComment(Complaint complaint, int id, String detail, Date date) {
 		if (complaint == null) return null;
-		Comment comment = new Comment(id, complaint.getUserName(), this.getFirstname() + " " + this.getLastname(), 
+		Comment comment = new Comment(id, complaint.getUserName(), this.getFirstName() + " " + this.getLastName(), 
 				detail, complaint.getDate(), date);
 		List<Comment> comms = complaint.getComments();
 		comms.add(comment);
@@ -128,5 +128,14 @@ public class Customer extends User {
 	
 	public void SubmitAComplaint(Complaint complaint) {
 		complaints.add(complaint);
+	}
+	
+	public Complaint findComplaintById(int id) {
+		for (Complaint complaint : complaints) {
+			if (complaint.getId() == id) {
+				return complaint;
+			}
+		}
+		return null;
 	}
 }

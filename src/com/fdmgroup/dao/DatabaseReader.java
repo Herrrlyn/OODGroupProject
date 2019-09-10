@@ -37,8 +37,8 @@ public class DatabaseReader {
 						Customer user = new Customer();
 						
 						user.setUserId(id);
-						user.setFirstname(fname);
-						user.setLastname(lname);
+						user.setFirstName(fname);
+						user.setLastName(lname);
 
 						user.setEmail(email);
 						user.setPassword(password);
