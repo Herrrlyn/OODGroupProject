@@ -20,35 +20,37 @@ public class DatabaseReader {
 	
 	public List<Customer> getCustomers() {
 		List<Customer> customers = new ArrayList<Customer>();
-		String query = "SELECT * from customers";
+		String query = "SELECT * FROM CUSTOMER";
 		try(Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				Statement statement = con.createStatement();
 				ResultSet rs = statement.executeQuery(query)) {
-			while(rs.next()) {
-				int id = rs.getInt("customer_id");
-				String fname = rs.getString("first_name");
-				String lname = rs.getString("last_name");
-				String email = rs.getString("email");
-				String password = rs.getString("password");
-				Blob blob = rs.getBlob("photo");
-				
-				
-				Customer user = new Customer();
-				
-				user.setUserId(id);
-				user.setFirstName(fname);
-				user.setLastName(lname);
-				user.setEmail(email);
-				user.setPassword(password);
-				user.setProfilePic(blob);
-				
-				customers.add(user);
-			}
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				while(rs.next()) {
+						int id = rs.getInt("customer_id");
+						String fname = rs.getString("first_name");
+						String lname = rs.getString("last_name");
+						String email = rs.getString("email");
+						String password = rs.getString("password");
+						Blob blob = rs.getBlob("photo");
+						
+						System.out.println("userid: " + id + " fname: " + fname);
+						Customer user = new Customer();
+						
+						user.setUserId(id);
+						user.setFirstName(fname);
+						user.setLastName(lname);
+						user.setEmail(email);
+						user.setPassword(password);
+						user.setProfilePic(blob);
+						
+						
+						customers.add(user);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return customers;
 	}
 

@@ -2,6 +2,7 @@ package com.fdmgroup.controller;
 
 import java.util.Scanner;
 
+import com.fdmgroup.dao.CustomerCollectionDao;
 import com.fdmgroup.model.Customer;
 import com.fdmgroup.view.ComplaintsListView;
 import com.fdmgroup.view.DetailsView;
@@ -35,8 +36,12 @@ public class LoginRegisterController {
 
 	public void register(int id, String email, String password, String firstname, String lastname) {
 		
-		Customer customer = new Customer(id, firstname, lastname, email, password, null, null);
-		System.out.println(customer);
+		Customer customer = new Customer(id, firstname, lastname, email, password, null);
+		
+		CustomerCollectionDao cdao = new CustomerCollectionDao();
+		cdao.create(customer);
+		
+		//System.out.println(customer);
 		loginRegisterView.showLoginOptions(false);
 		
 	}

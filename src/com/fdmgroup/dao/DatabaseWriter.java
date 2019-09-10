@@ -2,6 +2,8 @@ package com.fdmgroup.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
@@ -15,14 +17,24 @@ public class DatabaseWriter {
 	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
 	
 	public Optional<Customer> createCustomer(Customer customer) {
-		try(Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-				Statement statement = con.createStatement();) {
+		try (Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement ps = con.prepareStatement("INSERT INTO customer(customer_id,first_name,last_name,email,password) VALUES(?,?,?,?,?)"); 
+				){
 			
+			ps.setInt(1, customer.getUserId());
+			ps.setString(2, customer.getFirstName());
+			ps.setString(3, customer.getLastName());
+			ps.setString(4, customer.getEmail());
+			ps.setString(5, customer.getPassword());
 			
-			String query = "INSERT INTO customers VALUES(" + customer.getUserId() + "," + customer.getFirstName() + "," +
-			customer.getLastName() + "," + customer.getEmail() + "," + customer.getPassword() + "," + customer.getProfilePic() + ")";
+			ps.executeUpdate();
+			con.commit();
+			System.out.println("INSERT INTO customer(customer_id,first_name,last_name,email,password) VALUES(" + customer.getUserId() + "," + customer.getFirstName() + "," +
+					customer.getLastName() + "," + customer.getEmail() + "," + customer.getPassword() + ")");
 			
-			statement.executeUpdate(query);
+			//String query = "INSERT INTO customer(customer_id,first_name,last_name,email,password) VALUES(?,?,?,?,?)";
+			
+			//statement.executeUpdate(query);
 			
 			return Optional.of(customer);
 		} catch (SQLException e) {
