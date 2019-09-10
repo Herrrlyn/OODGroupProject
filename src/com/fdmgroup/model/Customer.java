@@ -8,20 +8,16 @@ import java.util.stream.Collectors;
 public class Customer extends User {
 	
 	private List<Complaint> complaints;
-	private List<Comment> comments;
 
 	public Customer() {
 		super();
 		this.complaints = new ArrayList<Complaint>();
-		this.comments = new ArrayList<Comment>();
 	}
 
 	public Customer(int id, String firstname, String lastname, String email, String password, 
 			String profilePic, List<Complaint> complaints, List<Comment> comments) {
 		super(id, firstname, lastname, email, password, profilePic);
 		this.complaints = complaints;
-		this.comments = comments;
-
 	}
 
 	public List<Complaint> getComplaints() {
@@ -32,13 +28,7 @@ public class Customer extends User {
 		this.complaints = complaints;
 	}
 	
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -50,11 +40,7 @@ public class Customer extends User {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (comments == null) {
-			if (other.comments != null)
-				return false;
-		} else if (!comments.equals(other.comments))
-			return false;
+		
 		if (complaints == null) {
 			if (other.complaints != null)
 				return false;
@@ -68,7 +54,7 @@ public class Customer extends User {
 
 	@Override
 	public String toString() {
-		return "Customer [complaints=" + complaints + ", comments=" + comments + "]";
+		return "Customer [complaints=" + complaints + "]";
 	}
 
 	// View all complaints for current customer
@@ -126,7 +112,6 @@ public class Customer extends User {
 		List<Comment> comms = complaint.getComments();
 		comms.add(comment);
 		complaint.setComments(comms);
-		this.comments.add(comment);
 		return comment;
 	}
 	
