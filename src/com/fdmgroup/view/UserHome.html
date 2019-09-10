@@ -113,14 +113,14 @@ button:hover {
 </table>
 
 <!-- For Creating a Complaint Modal -->
-<div id="popUp" class="modal">
+<div id="popUp" class="modal-complaint">
   
-  <form class="modal-content animate">
+  <form class="modal-complaint-content">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('popUp').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span onclick="document.getElementById('popUp').style.display='none'" class="close-complaint" title="Close Modal">&times;</span>
     </div>
 
-    <div class="container">
+    <div class="container1">
       <label for="title"><b>Title of Complaint</b></label>
       <input type="text" placeholder="Enter Title of Complaint" name="title" required>
       
@@ -130,8 +130,8 @@ button:hover {
       <button type="submit">Submit</button>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('popUp').style.display='none'" class="cancelbtn">Cancel</button>
+    <div class="container1" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('popUp').style.display='none'" class="cancelbtn-complaint">Cancel</button>
     </div>
   </form>
 </div>
