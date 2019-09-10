@@ -15,8 +15,8 @@ import com.fdmgroup.model.User;
 
 public class CustomerCollectionDao implements ICustomerDao {
 	
-	private DatabaseWriter databaseWriter;
-	private DatabaseReader databaseReader;
+	private DatabaseWriter databaseWriter = new DatabaseWriter();
+	private DatabaseReader databaseReader = new DatabaseReader();
 	
 	private List<Customer> customers = new ArrayList<Customer>();
 	
@@ -25,7 +25,7 @@ public class CustomerCollectionDao implements ICustomerDao {
 		customers = getCustomers();
 	}
 
-	private List<Customer> getCustomers() {
+	public List<Customer> getCustomers() {
 		return databaseReader.getCustomers();
 	}
 
