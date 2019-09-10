@@ -24,17 +24,18 @@ public class Tables {
 				"  first_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  last_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  email VARCHAR2(254) NOT NULL,\r\n" + 
-				"  password NVARCHAR2(15),\r\n" + 
-				"  profile_picture BLOB(2M),\r\n" + 
-				"  CONSTRAINT customer_pk PRIMARY KEY(customer_id)").toString();
+				"  password NVARCHAR2(15) NOT NULL,\r\n" + 
+				"  profile_picture BLOB,\r\n" + 
+				"  CONSTRAINT customer_pk PRIMARY KEY(customer_id)\r\n" + 
+				"  )").toString();
 		
 		String adminQuery = new StringBuilder("CREATE TABLE administrator (\r\n" + 
 				"  employee_id NUMBER(8) NOT NULL,\r\n" + 
 				"  first_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  last_name VARCHAR2(50) NOT NULL,\r\n" + 
 				"  email VARCHAR2(254) NOT NULL,\r\n" + 
-				"  password NVARCHAR2(15),\r\n" + 
-				"  profile_picture BLOB(2M),\r\n" + 
+				"  password NVARCHAR2(15) NOT NULL,\r\n" + 
+				"  profile_picture BLOB,\r\n" + 
 				"  CONSTRAINT admin_pk PRIMARY KEY(employee_id)\r\n" + 
 				"  )").toString();
 		
@@ -55,9 +56,8 @@ public class Tables {
 				"  created_by NUMBER(8) NOT NULL,\r\n" + 
 				"  CONSTRAINT comment_pk PRIMARY KEY(comment_id),\r\n" + 
 				"  CONSTRAINT customer_comment_fk FOREIGN KEY(created_by) REFERENCES customer(customer_id),\r\n" + 
-				"  CONSTRAINT admin_comment_fk FOREIGN KEY(created_by) REFERENCES admin(employee_id)\r\n" + 
-				")\r\n" + 
-				"").toString();
+				"  CONSTRAINT admin_comment_fk FOREIGN KEY(created_by) REFERENCES administrator(employee_id)\r\n" + 
+				")").toString();
 		
 		createTable(customerQuery);
 		createTable(adminQuery);
