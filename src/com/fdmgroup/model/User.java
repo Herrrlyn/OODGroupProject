@@ -1,5 +1,7 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
+
 public class User implements IStorable {
 
 	private int userId;
@@ -7,7 +9,7 @@ public class User implements IStorable {
 	private String lastname;
 	private String email;
 	private String password;
-	private String profilePic;
+	private Blob profilePic;
 	
 	public User() {
 		super();
@@ -18,14 +20,14 @@ public class User implements IStorable {
 		this.password = null;
 		this.profilePic = null;
 	}
-	public User(int id, String firstname, String lastname, String email, String password, String profilePic) {
+	public User(int id, String firstname, String lastname, String email, String password, Blob profilePic2) {
 		super();
 		this.userId = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.password = password;
-		this.profilePic = profilePic;
+		this.profilePic = profilePic2;
 	}
 	public int getUserId() {
 		return userId;
@@ -33,6 +35,7 @@ public class User implements IStorable {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	public String getFirstname() {
 		return firstname;
 	}
@@ -41,6 +44,7 @@ public class User implements IStorable {
 	}
 	public String getLastname() {
 		return lastname;
+
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
@@ -57,10 +61,10 @@ public class User implements IStorable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getProfilePic() {
+	public Blob getProfilePic() {
 		return profilePic;
 	}
-	public void setProfilePic(String profilePic) {
+	public void setProfilePic(Blob profilePic) {
 		this.profilePic = profilePic;
 	}
 	

@@ -1,5 +1,6 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,15 +8,22 @@ import java.util.stream.Collectors;
 
 public class Customer extends User {
 	
-	private List<Complaint> complaints;
+	private List<Complaint> complaints = new ArrayList<Complaint>();
 
 	public Customer() {
 		super();
 		this.complaints = new ArrayList<Complaint>();
 	}
+	
+	public Customer(int userId, String firstName, String lastName, String email, String password, Blob profilePic, List<Complaint> complaints) {
+		super(userId, firstName, lastName, email, password, profilePic);
+		this.complaints = complaints;
+
+	}
+
 
 	public Customer(int id, String firstname, String lastname, String email, String password, 
-			String profilePic, List<Complaint> complaints, List<Comment> comments) {
+			Blob profilePic, List<Complaint> complaints, List<Comment> comments) {
 		super(id, firstname, lastname, email, password, profilePic);
 		this.complaints = complaints;
 	}
@@ -54,7 +62,7 @@ public class Customer extends User {
 
 	@Override
 	public String toString() {
-		return "Customer [complaints=" + complaints + "]";
+		return super.toString() + " Customer [complaints=" + complaints + "]";
 	}
 
 	// View all complaints for current customer
@@ -70,6 +78,7 @@ public class Customer extends User {
 			retval.add(temp);
 		}
 		return retval;
+		
 	}
 	
 	// View all unresolved complaints for current customer

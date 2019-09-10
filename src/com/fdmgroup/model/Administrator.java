@@ -1,5 +1,6 @@
 package com.fdmgroup.model;
 
+import java.sql.Blob;
 import java.util.List;
 
 public class Administrator extends User {
@@ -11,7 +12,7 @@ public class Administrator extends User {
 		this.employeeId = null;
 	}
 	
-	public Administrator(int id, String firstname, String lastname, String email, String password, String profilePic, 
+	public Administrator(int id, String firstname, String lastname, String email, String password, Blob profilePic, 
 			String employeeId, List<Complaint> complaints) {
 		super(id, firstname, lastname, email, password, profilePic);
 		this.employeeId = employeeId;

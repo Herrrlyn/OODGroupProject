@@ -39,8 +39,8 @@ public class CustomerCollectionDao implements IUserDao {
 				String email = rs.getString("email");
 				String password = rs.getString("password");
 				
-				System.out.println(id, fname, lname, email, password);
-				System.out.println("==================================");
+//				System.out.println(id, fname, lname, email, password);
+//				System.out.println("==================================");
 			}
 			
 		} catch (SQLException e) {
@@ -125,21 +125,3 @@ public class CustomerCollectionDao implements IUserDao {
 		return usersByFirstname;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
