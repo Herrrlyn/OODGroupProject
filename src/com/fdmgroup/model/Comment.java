@@ -5,29 +5,42 @@ import java.util.Date;
 public class Comment {
 
 	private int id;
-	private String userName;
+	private String userComplainted;
+	private String userCommented;
 	private String details;
-	private Date dateAdded;
+	private Date dateComplainted;
+	private Date dateCommented;
 	
 	public Comment() {
 		super();
-		this.id = -1;
-		this.userName = null;
-		this.details = null;
-		this.dateAdded = null;
 	}
-	public Comment(int id, String userName, String details, Date dateAdded) {
+	public Comment(int id, String userComplainted, String userCommented, String details, Date dateComplainted,
+			Date dateCommented) {
 		super();
 		this.id = id;
-		this.userName = userName;
+		this.userComplainted = userComplainted;
+		this.userCommented = userCommented;
 		this.details = details;
-		this.dateAdded = dateAdded;
+		this.dateComplainted = dateComplainted;
+		this.dateCommented = dateCommented;
 	}
-	public String getUserName() {
-		return userName;
+	public int getId() {
+		return id;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getUserComplainted() {
+		return userComplainted;
+	}
+	public void setUserComplainted(String userComplainted) {
+		this.userComplainted = userComplainted;
+	}
+	public String getUserCommented() {
+		return userCommented;
+	}
+	public void setUserCommented(String userCommented) {
+		this.userCommented = userCommented;
 	}
 	public String getDetails() {
 		return details;
@@ -35,19 +48,17 @@ public class Comment {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public Date getDateAdded() {
-		return dateAdded;
+	public Date getDateComplainted() {
+		return dateComplainted;
 	}
-	public void setDateAdded(Date dateAdded) {
-		this.dateAdded = dateAdded;
+	public void setDateComplainted(Date dateComplainted) {
+		this.dateComplainted = dateComplainted;
 	}
-	
-	
-	public int getId() {
-		return id;
+	public Date getDateCommented() {
+		return dateCommented;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDateCommented(Date dateCommented) {
+		this.dateCommented = dateCommented;
 	}
 	
 	@Override
@@ -59,10 +70,15 @@ public class Comment {
 		if (getClass() != obj.getClass())
 			return false;
 		Comment other = (Comment) obj;
-		if (dateAdded == null) {
-			if (other.dateAdded != null)
+		if (dateCommented == null) {
+			if (other.dateCommented != null)
 				return false;
-		} else if (!dateAdded.equals(other.dateAdded))
+		} else if (!dateCommented.equals(other.dateCommented))
+			return false;
+		if (dateComplainted == null) {
+			if (other.dateComplainted != null)
+				return false;
+		} else if (!dateComplainted.equals(other.dateComplainted))
 			return false;
 		if (details == null) {
 			if (other.details != null)
@@ -71,19 +87,27 @@ public class Comment {
 			return false;
 		if (id != other.id)
 			return false;
-		if (userName == null) {
-			if (other.userName != null)
+		if (userCommented == null) {
+			if (other.userCommented != null)
 				return false;
-		} else if (!userName.equals(other.userName))
+		} else if (!userCommented.equals(other.userCommented))
+			return false;
+		if (userComplainted == null) {
+			if (other.userComplainted != null)
+				return false;
+		} else if (!userComplainted.equals(other.userComplainted))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", userName=" + userName + ", details=" + details + ", dateAdded=" + dateAdded
+		return "Comment \n[id=" + id + ", \nuserComplainted=" + userComplainted + ", \nuserCommented=" + userCommented
+				+ ", \ndetails=" + details + ", \ndateComplainted=" + dateComplainted + ", \ndateCommented=" + dateCommented
 				+ "]";
 	}
-
 	
+	
+	
+
 	
 }

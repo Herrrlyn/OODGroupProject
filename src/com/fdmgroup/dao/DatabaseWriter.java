@@ -1,3 +1,4 @@
+
 package com.fdmgroup.dao;
 
 import java.sql.Connection;
@@ -26,8 +27,10 @@ public class DatabaseWriter {
 			
 			con.setAutoCommit(false);
 			ps.setInt(1, customer.getUserId());
+
 			ps.setString(2, customer.getFirstName());
 			ps.setString(3, customer.getLastName());
+
 			ps.setString(4, customer.getEmail());
 			ps.setString(5, customer.getPassword());
 			ps.setBlob(6, customer.getProfilePic());

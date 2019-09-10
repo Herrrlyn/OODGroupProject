@@ -39,6 +39,7 @@ public class DatabaseReader {
 						user.setUserId(id);
 						user.setFirstName(fname);
 						user.setLastName(lname);
+
 						user.setEmail(email);
 						user.setPassword(password);
 						user.setProfilePic(blob);

@@ -249,7 +249,6 @@ body{
   margin-right:2%;
   float:left;
   border-radius:3px;
-  margin-bottom: 2%;
 }
 
 .header-div{
@@ -307,6 +306,8 @@ body{
   font-size: 16px;
  /*  position: absolute; */
   border-radius: 3px;
+  left: 75%;
+}
   /* left: 75%; */
   margin-left:5px;
   float:right;
@@ -584,4 +585,43 @@ hr {
   height:82%;
   width:70%;
   padding: 5px;
+}
+
+
+/* =========== User Profile Page ================= */
+
+.profile-image{
+	width:12%;
+	height:12%;
+	float: left;
+	margin-top:5%;
+	margin-left:15px;
+	
+}
+
+.profile-change-pw-button {
+  background-color: #00527e; 
+  border: none;
+  color: white;
+  padding: 3px 3px;
+  padding-right:15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-top:1%;
+}
+
+.profile-change-pic-button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 3px 3px;
+  padding-right:15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-left:5px;
+  margin-top:1%;
 }
