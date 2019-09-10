@@ -32,10 +32,10 @@ public class LoginRegisterController {
 		this.loginRegisterView = loginRegisterView;
 	}
 	public void register(int id, String email, String password, String firstname, String lastname) {
-		
-		
+			
 		
 		Customer customer = new Customer(id, firstname, lastname, email, password, null, null);
+
 		
 		CustomerCollectionDao cdao = new CustomerCollectionDao();
 		cdao.create(customer);

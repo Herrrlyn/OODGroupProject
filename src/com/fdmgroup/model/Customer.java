@@ -14,7 +14,7 @@ public class Customer extends User {
 		super();
 		this.complaints = new ArrayList<Complaint>();
 	}
-	
+
 	public Customer(int userId, String firstName, String lastName, String email, String password, Blob profilePic, List<Complaint> complaints) {
 		super(userId, firstName, lastName, email, password, profilePic);
 		this.complaints = complaints;
@@ -63,6 +63,7 @@ public class Customer extends User {
 	@Override
 	public String toString() {
 		return super.toString() + " Customer [complaints=" + complaints + "]";
+
 	}
 
 	// View all complaints for current customer
@@ -79,6 +80,7 @@ public class Customer extends User {
 		}
 		return retval;
 		
+
 	}
 	
 	// View all unresolved complaints for current customer

@@ -23,16 +23,19 @@ public class DatabaseWriter {
 				){
 			
 			ps.setInt(1, customer.getUserId());
+
 			ps.setString(2, customer.getFirstname());
 			ps.setString(3, customer.getLastname());
+
 			ps.setString(4, customer.getEmail());
 			ps.setString(5, customer.getPassword());
 			
 			ps.executeUpdate();
 			con.commit();
+
 			System.out.println("INSERT INTO customer(customer_id,first_name,last_name,email,password) VALUES(" + customer.getUserId() + "," + customer.getFirstname() + "," +
 					customer.getLastname() + "," + customer.getEmail() + "," + customer.getPassword() + ")");
-			
+
 			//String query = "INSERT INTO customer(customer_id,first_name,last_name,email,password) VALUES(?,?,?,?,?)";
 			
 			//statement.executeUpdate(query);
