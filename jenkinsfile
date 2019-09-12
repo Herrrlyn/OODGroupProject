@@ -1,0 +1,18 @@
+node {
+   def mvnHome
+   stage('Preparation') { // for display purposes
+      // Get some code from a GitHub repository
+      
+      git 'https://git.fdmgroup.com/Haowen.Yin/ComplaintManagementSystem.git'
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.           
+      mvnHome = tool 'Maven325'
+   }
+   stage('Build') {
+      echo "in build"
+   }
+   stage('Results') {
+      echo "in results"
+   }
+}
